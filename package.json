@@ -1,5 +1,5 @@
 {
-  "name": "myfirstreact",
+  "name": "baseballUI",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -17,11 +17,13 @@
     "redux": "^4.0.5",
     "video-react": "^0.14.1"
   },
+  "homepage":"https://lilihsu.github.io/baseballUI",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
