@@ -17,7 +17,7 @@
     "redux": "^4.0.5",
     "video-react": "^0.14.1"
   },
-  "homepage":"https://lilihsu.github.io/baseballUI/.",
+  "homepage":"https://lilihsu.github.io/baseballUI",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
