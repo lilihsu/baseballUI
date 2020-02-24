@@ -2,14 +2,26 @@ import React, { Component } from 'react';
 import { PrismCode } from 'react-prism';
 import { Player, ControlBar } from 'video-react';
 import { Button,Container,Row,Col,ButtonGroup,Label,Input,FormText,FormGroup} from 'reactstrap';
+import * as firebase from "firebase/app";
+import "firebase/storage";
 
+const firebaseConfig = {
+  apiKey: "AIzaSyBsxrMsRiJAppnMX5uXUT5VtzvDFCXzjxA",
+  authDomain: "baseball-ui.firebaseapp.com",
+  databaseURL: "https://baseball-ui.firebaseio.com",
+  projectId: "baseball-ui",
+  storageBucket: "baseball-ui.appspot.com",
+  messagingSenderId: "813689768638",
+  appId: "1:813689768638:web:3d892777346f01fd8becef"
+};
 
+firebase.initializeApp(firebaseConfig);
 
 const sources = {
-    sintelTrailer: 'http://media.w3.org/2010/05/sintel/trailer.mp4',
-    bunnyTrailer: 'http://media.w3.org/2010/05/bunny/trailer.mp4',
-    bunnyMovie: 'http://media.w3.org/2010/05/bunny/movie.mp4',
-    test: 'http://media.w3.org/2010/05/video/movie_300.webm'
+    sintelTrailer: 'https://firebasestorage.googleapis.com/v0/b/baseball-ui.appspot.com/o/korean.mp4?alt=media&token=fe3a810d-f629-4c2e-930a-20d6c525d8ac',
+    bunnyTrailer: 'https://firebasestorage.googleapis.com/v0/b/baseball-ui.appspot.com/o/node.mp4?alt=media&token=5a45a671-b302-49c4-aa27-280fb3d1a089',
+    bunnyMovie: 'https://firebasestorage.googleapis.com/v0/b/baseball-ui.appspot.com/o/ugly.mp4?alt=media&token=a412d3b0-90f2-4894-8f76-9bcaa6cfee8d',
+    test: 'https://firebasestorage.googleapis.com/v0/b/baseball-ui.appspot.com/o/korean.mp4?alt=media&token=fe3a810d-f629-4c2e-930a-20d6c525d8ac'
   };
 
   export default class PlayerControl extends Component {
@@ -17,7 +29,8 @@ const sources = {
       super(props, context);
   
       this.state = {
-        source: sources.bunnyTrailer
+        source: sources.bunnyTrailer,
+        source2: sources.bunnyMovie
       };
       this.play = this.play.bind(this);
       this.pause = this.pause.bind(this);
@@ -46,6 +59,9 @@ const sources = {
       // copy player state to this component's state
       this.setState({
         player: state
+      });
+      this.setState({
+        player2: state
       });
     }
   
@@ -119,7 +135,7 @@ const sources = {
                 height={400}
                 style={{paddingTop: '50',}}
               >
-                <source src={this.state.source} />
+                <source src={this.state.source2} />
                 <ControlBar autoHide={false} />
               </Player>
             </Col>
